@@ -43,3 +43,10 @@ jobs:
       run: |
         pytest
       continue-on-error: false
+    - name: Send telegram message on successful tests
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TG_ID }}
+        token: ${{ secrets.TG_TOKEN }}
+        message: |
+          $Все тесты успешно прошли проверку 
